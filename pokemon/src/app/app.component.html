@@ -1,0 +1,75 @@
+
+<mat-toolbar color="primary" *ngIf="currentUser">
+   <!-- <img  src="assets/Logo_enami_fondo.png">  -->
+  
+  <span>P o K e M o N e S</span>
+ <!-- This fills the remaining space of the current row -->
+ <p></p>
+ <span class="example-fill-remaining-space"></span>
+ <!-- menu izquierda--> 
+ <div>
+    <button mat-button routerLink='/'> Home </button>
+    <button   *ngIf="isAdmin"  mat-button [matMenuTriggerFor]="menu"> Busqueda Pokemones </button>
+    <mat-menu #menu="matMenu"  >
+      <button  *ngIf="isAdmin" mat-menu-item routerLink='pokemon/buscar/id'>Busqueda por Id</button>
+      <button  *ngIf="isAdmin" mat-menu-item  routerLink='pokemon/buscar/nombre'>Busqueda por Nombre</button>
+      <button  *ngIf="isAdmin" mat-menu-item  routerLink='pokemon/buscar/nivel'>Busqueda por nivel</button>
+    </mat-menu>
+    
+    
+
+  </div>
+   <!-- menu derecha  -->
+  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu3" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu3="matMenu" >
+    <button mat-menu-item routerLink="/admin"  *ngIf="isAdmin" >
+      <mat-icon>group_work</mat-icon>
+      <span>Administrar</span>
+    </button>
+
+    <button mat-menu-item routerLink="/Configuracion" >
+      <mat-icon>create</mat-icon>
+      <span>Configuracion</span>
+    </button>
+    <button mat-menu-item  routerLink="/tutorial">
+      <mat-icon>book</mat-icon>
+      <span>Tutorial</span>
+    </button>
+    <button mat-menu-item  routerLink="/about">
+      <mat-icon>description</mat-icon>
+      <span>About</span>
+    </button>
+    <button (click)="logout()" mat-menu-item>
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Salir</span>
+    </button>
+  </mat-menu>
+  
+  
+</mat-toolbar>
+<!-- 
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/">Home</a>
+      <a class="nav-item nav-link" routerLink="/admin" *ngIf="isAdmin">Admin</a>
+      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  </div>
+</nav> -->
+
+<div class="container">
+ 
+ 
+
+<router-outlet></router-outlet>
+<!-- <full-calendar defaultView="dayGridMonth" [plugins]="calendarPlugins"></full-calendar>   -->
+ 
+</div>
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+
+<div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+          <p class="subtitle" *ngIf="userFromApi"> Role  {{currentUser.role}}
+             Usuario Nombre : {{userFromApi.firstName}} Apellido :  {{userFromApi.lastName}}  id ={{userFromApi.id}}
+          </p>
+<p></p>
+
+<div  *ngIf="pokemones.length > 0" >Listado pokemones </div>
+<div *ngFor=" let poke of pokemones" class="container is-fluid" >
+<div class="card" >
+  <div class="card-image">
+    <figure class=" image is-5by3">
+      <img src="{{ poke.img }}" alt="Placeholder image">
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image ">
+          <img width="400" height="400" src="{{ poke.img }}" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4"> {{ poke.name }}</p>
+        <p class="title is-4"> {{ poke.level }}</p>
+       
+      </div>
+    </div>
+
+    <div class="content">
+      
+      <br>
+    </div>
+  </div>
+</div>
+</div>

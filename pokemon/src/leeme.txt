@@ -1,0 +1,5 @@
+ng g component components/reportes/reporteDiario-Listado --skipTests -is --module app
+
+>npm install --save bulma
+
+ npm i @angular/material-moment-adapter --save

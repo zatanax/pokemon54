@@ -1,0 +1,46 @@
+<h2>Buscar Pokemon por id </h2>
+
+<div class="field has-addons">
+    <div class="control">
+      <input   #busqueda name="busqueda"  class="input" type="number" placeholder="Buscar...">
+    </div>
+    <div class="control">
+      <a class="button is-info" (click)="busquedaPorId(busqueda.value)">
+        Busca ese pokemon ?
+      </a>
+    </div>
+  </div>
+
+  
+  <div *ngIf="pokemon.length > 0"> Resultados de la busqueda <br></div>
+
+
+  <!-- <div  *ngIf="pokemone.length > 0" >Listado pokemones </div> -->
+  <div *ngFor=" let poke of pokemon" class="container is-fluid" >
+  <div class="card" >
+    <div class="card-image">
+      <figure class=" image is-5by3">
+        <img src="{{ poke.img }}" alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image ">
+            <img width="400" height="400" src="{{ poke.img }}" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4"> {{ poke.name }}</p>
+          <p class="title is-4"> {{ poke.level }}</p>
+         
+        </div>
+      </div>
+  
+      <div class="content">
+        
+        <br>
+      </div>
+    </div>
+  </div>
+  </div>
